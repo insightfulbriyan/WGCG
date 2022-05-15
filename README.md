@@ -1,0 +1,2 @@
+# WGCG
+WireGuard config generator
