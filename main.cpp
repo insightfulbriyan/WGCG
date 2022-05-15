@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <fstream>
-
+#include <unistd.h>
 
 int main() {
     char key[45];
@@ -19,6 +19,8 @@ int main() {
     fprintf(conf, "[Peer]\nPublicKey = %s\nAllowedIPs = %s\n\n", key, ip);
     fclose(conf);
 
+    setuid(0);
+    setgid(0);
     system("sudo wg-quick down wg0");
     system("sudo wg-quick up wg0");
     return 0;
