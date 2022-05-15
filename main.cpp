@@ -16,7 +16,7 @@ int main() {
     //maybe confirm input
 
     FILE *conf = fopen("/etc/wireguard/wg0.conf", "a");
-    fprintf(conf, "[Peer]\nPublic key = %s\nAllowedIPs = %s\n\n", key, ip);
+    fprintf(conf, "[Peer]\nPublicKey = %s\nAllowedIPs = %s\n\n", key, ip);
     fclose(conf);
 
     system("sudo wg-quick down wg0");
